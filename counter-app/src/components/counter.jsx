@@ -3,16 +3,15 @@ import React, { Component, Fragment } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    address: {
-      street: "",
-    },
+    imageUrl: "https://picsum.photos/200",
   };
   render() {
     return (
-      <Fragment>
+      <div>
+        <img src={this.state.imageUrl} alt="" />
         <span> {this.formatCount()} </span>
         <button>Increment</button>
-      </Fragment>
+      </div>
     );
   }
 
