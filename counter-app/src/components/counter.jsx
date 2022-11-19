@@ -10,10 +10,15 @@ class Counter extends Component {
   render() {
     return (
       <Fragment>
-        <span> {this.state.count} </span>
+        <span> {this.formatCount()} </span>
         <button>Increment</button>
       </Fragment>
     );
+  }
+
+  formatCount() {
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
   }
 }
 
