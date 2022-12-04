@@ -7,22 +7,6 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
-  //   constructor() {
-  //     super();
-  //     this.handleIncrement = this.handleIncrement.bind(this);
-  //   }
-
-  // renderTags() {
-  //   if (this.state.tags.length === 0) return <p>There are no tags!</p>;
-  //   return (
-  //     <ul>
-  //       {this.state.tags.map((tag) => (
-  //         <li key={tag}> {tag} </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
   render() {
     return (
       <div>
