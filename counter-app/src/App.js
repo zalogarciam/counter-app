@@ -8,10 +8,10 @@ import React, { Component } from "react";
 class App extends Component {
   state = {
     counters: [
-      { id: 1, value: 0, disableDecrementButton: false},
-      { id: 2, value: 0, disableDecrementButton: false },
-      { id: 3, value: 0, disableDecrementButton: false },
-      { id: 4, value: 0, disableDecrementButton: false },
+      { id: 1, value: 0, disableDecrementButton: true},
+      { id: 2, value: 0, disableDecrementButton: true },
+      { id: 3, value: 0, disableDecrementButton: true },
+      { id: 4, value: 0, disableDecrementButton: true },
     ]
   };
 
@@ -32,6 +32,7 @@ class App extends Component {
   handleReset = () => {
     const counters = this.state.counters.map((c) => {
       c.value = 0;
+      c.disableDecrementButton = true;
       return c;
     });
     this.setState({ counters });
