@@ -8,11 +8,11 @@ import React, { Component } from "react";
 class App extends Component {
   state = {
     counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 },
-    ],
+      { id: 1, value: 0, disableDecrementButton: false},
+      { id: 2, value: 0, disableDecrementButton: false },
+      { id: 3, value: 0, disableDecrementButton: false },
+      { id: 4, value: 0, disableDecrementButton: false },
+    ]
   };
 
   constructor(){
@@ -42,11 +42,29 @@ class App extends Component {
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value++;
+
+    if (counters[index].value > 0){
+      counters[index].disableDecrementButton = false;
+    }
+
+    this.setState({ counters });
+  };
+
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    if (counters[index].value > 0) {
+      counters[index].value--;
+    }
+    if (counters[index].value <= 0) {
+      counters[index].disableDecrementButton = true;
+    }
+    
     this.setState({ counters });
   };
 
   render() {
-    console.log("App - render");
     return (
       <Fragment>
         <NavBar
@@ -56,6 +74,7 @@ class App extends Component {
           <Counters
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             counters={this.state.counters}
           ></Counters>
